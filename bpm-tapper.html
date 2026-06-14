@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BPM Tapper – Free Online Tap Tempo &amp; Beats Per Minute Counter</title>
+<meta name="description" content="Free online BPM tapper. Tap along to any song and read the tempo in beats per minute instantly. Works with the spacebar or a tap on your phone.">
+<link rel="canonical" href="https://yourdomain.com/bpm-tapper.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="BPM Tapper – Free Online Tap Tempo">
+<meta property="og:description" content="Tap along to any beat and read the tempo instantly. Free, no install.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourdomain.com/bpm-tapper.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"BPM Tapper","applicationCategory":"MultimediaApplication","operatingSystem":"Any","url":"https://yourdomain.com/bpm-tapper.html","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span> Sound Tools</a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Decibel Meter</a>
+      <a href="tone-generator.html">Tone Generator</a>
+      <a href="bpm-tapper.html" class="is-active">BPM Tapper</a>
+      <a href="decibel-levels.html">Decibel Levels</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <span class="eyebrow">Free browser tap tempo</span>
+    <h1>Find the tempo of any beat.</h1>
+    <p class="lede">Tap along to a song and read the beats per minute as you go. Use the big button on your phone or just hit the spacebar on a keyboard. The reading settles after a handful of taps.</p>
+  </section>
+
+  <section class="wrap" style="padding-bottom:8px">
+    <div class="panel" style="max-width:520px;margin:0 auto">
+      <div class="panel__head">
+        <span class="panel__title">BPM Tapper</span>
+        <span class="status"><span class="status__dot" id="bpmDot"></span><span>Ready</span></span>
+      </div>
+      <div class="panel__body">
+        <div style="text-align:center;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;margin-bottom:18px">
+          <div class="mono" id="bpmVal" style="font-size:72px;font-weight:500;line-height:.9">—</div>
+          <div class="mono muted" id="bpmSub" style="margin-top:8px">Tap to begin</div>
+        </div>
+
+        <button class="tap" id="tapBtn">Tap here<br><span class="muted" style="font-size:13px;font-weight:400">or press the spacebar</span></button>
+
+        <div class="stats" style="margin-top:18px">
+          <div class="stat"><div class="stat__k">Taps</div><div class="stat__v mono" id="bpmTaps">0</div></div>
+          <div class="stat"><div class="stat__k">Interval</div><div class="stat__v mono" id="bpmMs">—</div></div>
+          <div class="stat"><div class="stat__k">Tempo</div><div class="stat__v mono" id="bpmWord" style="font-size:15px">—</div></div>
+        </div>
+
+        <button class="btn btn--ghost btn--block" id="bpmReset" style="margin-top:16px">Reset</button>
+      </div>
+    </div>
+    <p class="muted mt-s" style="text-align:center">Pause for a couple of seconds and the counter resets so you can start a fresh measurement.</p>
+  </section>
+
+  <section class="wrap section">
+    <div class="grid-2">
+      <div class="prose">
+        <h2>How to get an accurate reading</h2>
+        <p>Tap on the strong beat, the one you would clap to, and keep a steady hand. The tool averages the gaps between your taps, so the more you tap the more stable the number becomes. After about six taps it is usually within two or three BPM of the real tempo.</p>
+        <h3>Very fast songs</h3>
+        <p>If a track feels too quick to tap every beat, tap on every other beat instead and double the result. The same trick works in reverse for slow ballads, where tapping each half beat and halving the number gives a steadier reading.</p>
+      </div>
+      <div class="prose">
+        <h2>What the tempo words mean</h2>
+        <p>The classical tempo markings are a quick way to describe feel. Largo is broad and slow, Andante is a walking pace, Moderato is middle of the road, Allegro is bright and fast, and Presto is very fast. They overlap and are interpreted loosely, but they give a useful shorthand for the number you just measured.</p>
+        <p>DJs and producers usually care about the exact figure for beatmatching and setting a session tempo. Once you have it, you can line up two tracks or program a drum pattern with confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="prose" style="margin-bottom:20px">Questions, answered</h2>
+    <div class="faq">
+      <div class="faq__item"><button class="faq__q" aria-expanded="false">How many times should I tap?</button>
+        <div class="faq__a">Four taps gives a rough figure, and six to eight gives a reliable one. The tool keeps a rolling average of your most recent taps, so a longer, steady run produces the most accurate result.</div></div>
+      <div class="faq__item"><button class="faq__q" aria-expanded="false">Does it work on a phone?</button>
+        <div class="faq__a">Yes. The large button is built for thumbs and responds instantly to taps. On a laptop or desktop the spacebar is usually the most comfortable way to keep time.</div></div>
+      <div class="faq__item"><button class="faq__q" aria-expanded="false">Why did my count reset?</button>
+        <div class="faq__a">If you stop tapping for a couple of seconds the counter clears itself, assuming you have finished. Just start tapping again to measure a new tempo.</div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span> Sound Tools</a>
+        <p class="muted mt-s" style="max-width:34ch">Free, private, browser-based audio instruments.</p>
+      </div>
+      <div><h4>Tools</h4><ul><li><a href="/">Decibel Meter</a></li><li><a href="tone-generator.html">Tone Generator</a></li><li><a href="bpm-tapper.html">BPM Tapper</a></li></ul></div>
+      <div><h4>Learn</h4><ul><li><a href="decibel-levels.html">Decibel Levels</a></li><li><a href="about.html">How it works</a></li></ul></div>
+    </div>
+    <p class="foot__copy">© <span id="year">2025</span> Sound Tools. Audio is processed locally and never leaves your device.</p>
+  </div>
+</footer>
+<script src="js/site.js" defer></script>
+<script src="js/bpm.js" defer></script>
+</body>
+</html>

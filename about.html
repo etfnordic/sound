@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How the Sound Tools Decibel Meter Works – Accuracy &amp; Privacy</title>
+<meta name="description" content="How our online decibel meter measures sound, why it uses A-weighting and Fast/Slow response, how accurate it is, and why your audio never leaves your device.">
+<link rel="canonical" href="https://yourdomain.com/about.html">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span> Sound Tools</a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/">Decibel Meter</a>
+      <a href="tone-generator.html">Tone Generator</a>
+      <a href="bpm-tapper.html">BPM Tapper</a>
+      <a href="decibel-levels.html">Decibel Levels</a>
+      <a href="about.html" class="is-active">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <span class="eyebrow">How it works</span>
+    <h1>An honest meter, built in the open.</h1>
+    <p class="lede">Sound Tools is a small set of audio instruments that run entirely in your browser. No accounts, no uploads, no tracking of what you measure. This page explains exactly how the readings are produced and where the limits are.</p>
+  </section>
+
+  <section class="wrap section--tight">
+    <div class="prose">
+      <h2>From microphone to decibels</h2>
+      <p>When you press start, the browser grants the page a live audio stream from your microphone. We deliberately turn off the browser's noise suppression, echo cancellation and automatic gain control. Those features are designed for voice calls and would quietly distort a measurement, which is the classic reason a naive web meter reads zero in a quiet room.</p>
+      <p>The raw signal is passed to an analyser node that runs a Fast Fourier Transform, splitting the sound into frequency bins many times per second. We convert each bin to its energy, optionally apply a frequency weighting, sum the result, and express it on the decibel scale. A short time-weighted average smooths the number so it reads like a real meter rather than flickering on every sample.</p>
+
+      <h3 id="accuracy">A-weighting and the response setting</h3>
+      <p>The ear is not equally sensitive to every frequency, so sound level meters apply a weighting curve. A-weighting, defined in the international standard IEC 61672, shapes the measurement to follow human hearing and is the basis for nearly all noise and hearing-safety rules. We implement the standard A-weighting transfer function across the spectrum. Switching to Z gives a flat, unweighted reading, useful when you want the true energy at low frequencies.</p>
+      <p>The Fast and Slow settings mirror hardware meters. Fast averages over 125 milliseconds and reacts quickly to changes, while Slow averages over a full second for a calmer, more comparable figure. The Avg field reports an energy-equivalent level, the kind of average that matters when judging exposure over time.</p>
+
+      <h3>How accurate is it?</h3>
+      <p>Honestly, it is a good estimate, not a certified measurement. The single biggest limitation is the microphone. Consumer mics are not calibrated and vary in sensitivity by ten decibels or more between devices, and their frequency response is rarely flat. Room reflections, wind across the mic, and distance from the source all shift readings too.</p>
+      <p>That makes the tool excellent for relative comparisons, trends and awareness, and unsuitable for legal or occupational compliance, which require a calibrated Class 1 or Class 2 instrument. If you own a reference meter, the calibration offset on the meter page lets you align this tool to it, and the setting is stored on your device so it persists between visits.</p>
+
+      <h3>Privacy</h3>
+      <p>Everything runs locally. The audio stream is read frame by frame in your browser and then discarded; it is never recorded, stored, or sent to any server. The only thing saved is your calibration offset, which lives in your browser's local storage and never leaves the device. You can clear it any time through your browser settings.</p>
+
+      <h3>Browser support</h3>
+      <p>The tools rely on the Web Audio API and microphone access, which are supported by current versions of Chrome, Edge, Firefox and Safari on both desktop and mobile. Microphone access requires a secure HTTPS connection. On iOS, the first tap on a start button also unlocks audio playback, so simply allow the permission prompt and you are ready.</p>
+
+      <p class="mt-m"><a class="link" href="/">Open the decibel meter</a> or browse the <a class="link" href="decibel-levels.html">decibel levels guide</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"></span> Sound Tools</a>
+        <p class="muted mt-s" style="max-width:34ch">Free, private, browser-based audio instruments.</p>
+      </div>
+      <div><h4>Tools</h4><ul><li><a href="/">Decibel Meter</a></li><li><a href="tone-generator.html">Tone Generator</a></li><li><a href="bpm-tapper.html">BPM Tapper</a></li></ul></div>
+      <div><h4>Learn</h4><ul><li><a href="decibel-levels.html">Decibel Levels</a></li><li><a href="about.html">How it works</a></li></ul></div>
+    </div>
+    <p class="foot__copy">© <span id="year">2025</span> Sound Tools. Audio is processed locally and never leaves your device.</p>
+  </div>
+</footer>
+<script src="js/site.js" defer></script>
+</body>
+</html>
